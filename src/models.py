@@ -17,8 +17,7 @@ class User(Base):
     surnname = Column(String(50), nullable=False)
     email = Column(String(100), nullable=False)
     password = Column(String(50), nullable=False)
-    favorite_pjs = Column(Integer, ForeignKey("fav_persons.id"))
-    favorite_planets = Column(Integer, ForeignKey("fav_planets.id"))
+    
 
 class Personajes(Base):
     __tablename__ = 'personajes'
@@ -42,12 +41,14 @@ class Fav_personajes(Base):
     __tablename__ = 'fav_personajes'
     id = Column(Integer, primary_key=True)
     favoritos = Column(Integer, ForeignKey("personajes.id"))
+    user_like = Column (Integer, ForeignKey("user.id"))
+
 
 class Fav_planets(Base):
     __tablename__ = 'fav_planets'
     id = Column(Integer, primary_key=True)
     favoritos = Column(Integer, ForeignKey("planets.id"))
-
+    user_like = Column (Integer, ForeignKey("user.id"))
 
 
 
