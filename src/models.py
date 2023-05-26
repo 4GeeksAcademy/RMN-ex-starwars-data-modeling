@@ -40,14 +40,14 @@ class Planets(Base):
 class Fav_personajes(Base):
     __tablename__ = 'fav_personajes'
     id = Column(Integer, primary_key=True)
-    favoritos = Column(Integer, ForeignKey("personajes.id"))
+    favoritos_pjs = Column(Integer, ForeignKey("personajes.id"))
     user_like = Column (Integer, ForeignKey("user.id"))
 
 
 class Fav_planets(Base):
     __tablename__ = 'fav_planets'
     id = Column(Integer, primary_key=True)
-    favoritos = Column(Integer, ForeignKey("planets.id"))
+    favoritos_planets = Column(Integer, ForeignKey("planets.id"))
     user_like = Column (Integer, ForeignKey("user.id"))
 
 
